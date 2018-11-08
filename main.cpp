@@ -4,6 +4,18 @@
 #include<queue>
 using namespace std;
 
+
+int sumOfNodes(TreeNode<int>* root) {
+  if(root==NULL)
+    return 0;
+  int sum=root->data;
+  for(int i=0;i<root->children.size();i++){
+    sum=sum+sumOfNodes(root->children.at(i));
+
+  }
+  return sum;
+}
+
 TreeNode<int>* takeInputLevelWise(){
     int rootData;
     cout<<"Enter root data:"<<endl;
