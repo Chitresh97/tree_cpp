@@ -4,6 +4,24 @@
 #include<queue>
 using namespace std;
 
+int height(TreeNode<int>* root) {
+  if(root==NULL)
+    return 0;
+  if(root->children.size()==0)
+    return 1;
+
+  else{
+    int maxChildHeight=height(root->children[0]);
+  for(int i=1;i<root->children.size();i++){
+    int childheight=height(root->children[i]);
+    if(childheight>maxChildHeight)
+      maxChildHeight=childheight;
+  }
+    return 1+maxChildHeight;
+  }
+
+}
+
 TreeNode<int>* maxDataNode(TreeNode<int>* root) {
   if(root==NULL)
     return NULL;
