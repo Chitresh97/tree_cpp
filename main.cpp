@@ -4,6 +4,23 @@
 #include<queue>
 using namespace std;
 
+TreeNode<int>* maxDataNode(TreeNode<int>* root) {
+  if(root==NULL)
+    return NULL;
+
+  int max=root->data;
+  TreeNode<int>*maxChild=root;
+
+  for(int i=0;i<root->children.size();i++){
+    TreeNode<int>* temp=maxDataNode(root->children[i]);
+    if(temp->data>max){
+      max=temp->data;
+      maxChild=temp;
+    }
+  }
+  return maxChild;
+}
+
 
 int sumOfNodes(TreeNode<int>* root) {
   if(root==NULL)
