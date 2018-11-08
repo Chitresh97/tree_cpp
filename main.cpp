@@ -4,6 +4,23 @@
 #include<queue>
 using namespace std;
 
+void printLevelWise(TreeNode<int>*root){
+    queue<TreeNode<int>*> pendingNodes;
+      pendingNodes.push(root);
+      while(pendingNodes.size()!=0){
+          TreeNode<int>*front=pendingNodes.front();
+
+          cout<<front->data<<":";
+          for(int i=0;i<front->children.size();i++){
+              cout<<front->children.at(i)->data;
+              if(i!=front->children.size()-1)
+                  cout<<",";
+            pendingNodes.push(front->children[i]);
+                  }
+        cout<<endl;
+        pendingNodes.pop();}
+}
+
 TreeNode<int>* takeInputLevelWise(){
     int rootData;
     cout<<"Enter root data:"<<endl;
@@ -19,7 +36,7 @@ TreeNode<int>* takeInputLevelWise(){
         cin>>numChild;
         for(int i=0;i<numChild;i++){
             int childData;
-            cout<<"Enter "<<i+1<<" element of "<<front->data;
+            cout<<"Enter "<<i+1<<" element of "<<front->data<<""<<endl;
             cin>>childData;
             TreeNode<int>*child=new TreeNode<int>(childData);
             front->children.push_back(child);
@@ -59,6 +76,6 @@ int main()
 {
 
     TreeNode<int> * root= takeInputLevelWise();
-    printTree(root);
+    printLevelWise(root);
 
  }
