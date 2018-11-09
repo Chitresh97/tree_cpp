@@ -4,6 +4,20 @@
 #include<queue>
 using namespace std;
 
+bool containsX(TreeNode<int>* root, int x) {
+  bool v=false;
+  if(root->data==x)
+    return true;
+  else{
+    for(int i=0;i<root->children.size();i++){
+      if(containsX(root->children[i],x))
+        v=true;
+    }
+  return v;
+  }
+
+}
+
 int nodesGreaterThanX(TreeNode<int> *root, int x) {
   int count=0;
   if(root->data>x)
