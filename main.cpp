@@ -4,6 +4,19 @@
 #include<queue>
 using namespace std;
 
+int numLeafNodes(TreeNode<int>* root) {
+  if(root->children.size()==0)
+    return 1;
+  else{
+  int n=0;
+  for(int i=0;i<root->children.size();i++){
+    n=n + numLeafNodes(root->children[i]);
+  }
+    return n;
+  }
+
+}
+
 int height(TreeNode<int>* root) {
   if(root==NULL)
     return 0;
