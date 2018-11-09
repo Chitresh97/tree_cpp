@@ -4,6 +4,24 @@
 #include<queue>
 using namespace std;
 
+bool isIdentical(TreeNode<int> *root1, TreeNode<int> * root2) {
+  if(root1->data!=root2->data){
+    return false;
+  }
+  else{
+    if(root1->children.size()!=root2->children.size())
+      return false;
+    else{
+      if(root1->children.size()==0)
+        return true;
+      else
+        for(int i=0;i<root1->children.size();i++){
+          return isIdentical(root1->children[i],root2->children[i]);
+
+        }
+    }
+  }
+}
 bool containsX(TreeNode<int>* root, int x) {
   bool v=false;
   if(root->data==x)
