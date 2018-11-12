@@ -4,6 +4,18 @@
 #include<queue>
 using namespace std;
 
+void helperReplaceWithDepthValue(TreeNode<int>*root,int n){
+  if(root==NULL)
+    return;
+  root->data=n;
+  for(int i=0;i<root->children.size();i++){
+    helperReplaceWithDepthValue(root->children[i],n+1);
+  }
+}
+void replaceWithDepthValue(TreeNode<int> *root){
+  helperReplaceWithDepthValue(root,0);
+}
+
 bool isIdentical(TreeNode<int> *root1, TreeNode<int> * root2) {
   if(root1->data!=root2->data){
     return false;
