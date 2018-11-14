@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1542204531 source:/home/chitresh/Desktop/trees/main.cpp
+	<iostream>
+	"TreeNode.h"
+	<vector>
+	<queue>
+
+1541688114 /home/chitresh/Desktop/trees/TreeNode.h
+	<vector>
+

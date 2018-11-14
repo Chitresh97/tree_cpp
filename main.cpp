@@ -212,5 +212,6 @@ int main()
 
     TreeNode<int> * root= takeInputLevelWise();
     printLevelWise(root);
+    delete root;
 
  }
